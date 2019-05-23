@@ -1,7 +1,7 @@
 (function() {
     // Create the connector object
     var myConnector = tableau.makeConnector();
-    var cols = [];    
+    var cols = [];
 
     // Define the schema
     myConnector.getSchema = function(schemaCallback) {
@@ -28,18 +28,19 @@
 
         $.post(queryServerURL, data, function(resp) {
             tableData = [];
-            console.log("Cosmos db result is " + resp);            
+            console.log("Cosmos db result is " + resp);
             var respObj = JSON.parse(resp);
             var colNames = Object.keys(respObj[0]);
             for (var i = 0, len = colNames.length; i < len; i++) {
                 // TODO: Expand below validation. Tableau columns support only characters, numbers and underscores
-                if(!colNames[i].includes(',') && !colNames[i].includes(' '))
+                //if(!colNames[i].includes(',') && !colNames[i].includes(' '))
+                if(colNames[i] != ',')
                 {
                     cols.push({
                         id : colNames[i],
                         dataType: tableau.dataTypeEnum.string
-                    }); 
-                }        
+                    });
+                }
 
             };
             var tableSchema = {
@@ -47,7 +48,7 @@
                 alias: "Data loaded from Cosmos DB",
                 columns: cols
             };
-    
+
             schemaCallback([tableSchema]);
         }, "json");
     };
@@ -77,7 +78,7 @@
         $.post(queryServerURL, data, function(resp) {
             tableData = [];
             console.log("Cosmos db result is " + resp);
-            
+
             var respObj = JSON.parse(resp);
             // Iterate over the JSON object
             var tableData = [];
@@ -86,7 +87,7 @@
                 var tableObj = {};
                 for (var j = 0, len_j = cols.length; j < len_j; j++) {
                     tableObj[cols[j].id] = respObj[i][cols[j].id];
-                    console.log(tableObj);                    
+                    console.log(tableObj);
                 }
                 tableData.push(tableObj);
             }
