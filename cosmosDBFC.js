@@ -102,8 +102,6 @@
      $(document).ready(function() {
         $("#submitButton").click(function() {
             var cosmosConnectionInfo = {
-                account : $("#account-uri").val().trim(),
-                key: $("#account-key").val().trim(),
                 database: $("#database").val().trim(),
                 collection: $("#collection").val().trim(),
                 query: $("#custom-query").val().trim(),
