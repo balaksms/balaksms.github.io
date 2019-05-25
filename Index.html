@@ -96,7 +96,20 @@
 	function myFunction() {
 	  alert("Page is loaded 1");
 	 $.get("https://cosmosdbwebendpoint.azurewebsites.net/api/CosmodbListDBCollections?code=aPIHSuCzv61PidRribKPCm6BzajPTK0FOSIZML65i1xEGbs3FqWSbw==", function(data, status){
-	    alert("Data: " + data + "\nStatus: " + status);
+	      console.log("Cosmos db collection result is " + data);
+		            var respObj = JSON.parse(data);
+		            var colNames = Object.keys(data[0]);
+		            for (var i = 0, len = colNames.length; i < len; i++) {
+		                 //if(!colNames[i].includes(',') && !colNames[i].includes(' '))
+		                if(colNames[i] != ',')
+		                {
+		                		<option value="<?=$DbCollections[$i];?>"><?=$DbCollections[$i];?></option>
+		                    });
+		                }
+
+            }
+
+
 	  })
 	  alert("Page is loaded");
 }
