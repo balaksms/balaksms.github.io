@@ -91,5 +91,15 @@
             </form>
         <button type = "button" id = "submitButton" class = "btn btn-success" style = "margin: 10px;">Get Cosmos DB Data</button>
     </div>>
+
+    <script>
+	function myFunction() {
+	  alert("Page is loaded 1");
+	 $.get("https://cosmosdbwebendpoint.azurewebsites.net/api/CosmodbListDBCollections?code=aPIHSuCzv61PidRribKPCm6BzajPTK0FOSIZML65i1xEGbs3FqWSbw==", function(data, status){
+	    alert("Data: " + data + "\nStatus: " + status);
+	  })
+	  alert("Page is loaded");
+}
+</script>
 </body>
 </html>
