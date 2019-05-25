@@ -74,7 +74,7 @@
     </style>
 </head>
 
-<body onload="GetDBCollections">
+<body onload="GetDBCollection">
     <div class="container">
             <form>
                 <br>
@@ -93,7 +93,7 @@
     </div>>
 
     <script>
-	function GetDBCollections() {
+	function GetDBCollection() {
 	  alert("Page is loaded 1");
 	 $.get("https://cosmosdbwebendpoint.azurewebsites.net/api/CosmodbListDBCollections?code=aPIHSuCzv61PidRribKPCm6BzajPTK0FOSIZML65i1xEGbs3FqWSbw==", function(data, status){
 	      console.log("Cosmos db collection result is " + data);
