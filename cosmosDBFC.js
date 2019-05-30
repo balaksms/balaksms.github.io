@@ -101,7 +101,7 @@
 				database: "test",
                 collection: "test",
                 query: $("#custom-query").val().trim()
-            }
+            };
 
             tableau.connectionData = JSON.stringify(cosmosConnectionInfo);
             tableau.connectionName = "Cosmos DB Reader"; // This will be the data source name in Tableau
