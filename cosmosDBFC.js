@@ -7,19 +7,14 @@
     myConnector.getSchema = function(schemaCallback) {
 
         var cosmosConnectionInfo = JSON.parse(tableau.connectionData),
-        account = cosmosConnectionInfo.account,
-        key = cosmosConnectionInfo.key,
         database = cosmosConnectionInfo.database,
-        collection = cosmosConnectionInfo.collection,
-        queryServerURL = cosmosConnectionInfo.queryServerURL;
-
+        collection = cosmosConnectionInfo.collection
+        
         // TODO: Change the below query to sampling random docs and extracting union of all columns
         query = "SELECT TOP 1 * from c";
-
+		queryServerURL = "https://cosmosdbwebendpoint.azurewebsites.net/api/CosmosDBQuery?code=DpVgb0itRQPWp6yqTFGlFiPKozO2yqxMxi00YtVP5O4LfmkvAoDfkw==";
         var queryInfo = {
             QueryText : query,
-            AccountUri: account,
-            Key : key,
             Database: database,
             Collection: collection
         };
@@ -101,11 +96,14 @@
      // Create event listeners for when the user submits the form
      $(document).ready(function() {
         $("#submitButton").click(function() {
+			var dbcol = $("#dbcollist").val().trim().split("-");
+			console.log(dbcol);
             var cosmosConnectionInfo = {
-                database: $("#database").val().trim(),
-                collection: $("#collection").val().trim(),
-                query: $("#custom-query").val().trim(),
-                queryServerURL: $("#query-server-url").val().trim()
+                var db dbcol.slice(1,1),
+				var col dbcol.slice(2,1)
+				database: db
+                collection: col,
+                query: $("#custom-query").val().trim()
             }
 
             tableau.connectionData = JSON.stringify(cosmosConnectionInfo);
