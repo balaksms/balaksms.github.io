@@ -89,6 +89,43 @@
         <button type = "button" id = "submitButton" class = "btn btn-success" style = "margin: 10px;">Get Cosmos DB Data</button>
 		
     </div>
-    
+    <script>
+function LoadComboList()
+{
+	let dropdown = document.getElementById("dbcollist");
+	dropdown.length=0;
+
+	dropdown.selectedIndex = 0;
+    option = document.createElement('option');
+    option.text = "Hello1";
+    option.value = "Hello value 1";
+	dropdown.add(option);
+                     
+	queryServerURL ='https://cosmosdbwebendpoint.azurewebsites.net/api/CosmodbListDBCollections?code=aPIHSuCzv61PidRribKPCm6BzajPTK0FOSIZML65i1xEGbs3FqWSbw==';
+	const request = new XMLHttpRequest();
+	request.open('GET', queryServerURL, true);
+	request.onload = function()
+	{
+			if (request.status === 200)
+		{
+			var resp = request.responseText;
+			console.log(resp);
+			var data = JSON.parse(resp);
+		    for (let i = 0; i < data.length; i++)
+		    {
+		      option = document.createElement('option');
+			  var val= data[i].dbname + "-" + data[i].cname;
+		      option.text = val
+		      option.value = val
+			  console.log(val);
+		      dropdown.add(option);
+		    }
+		}
+	}
+	request.send(null);
+
+
+}
+</script>
 </body>
 </html>
