@@ -98,9 +98,9 @@
         $("#submitButton").click(function() {
 			var dbcol = $("#dbcollist").val().trim().split("-");
 			console.log(dbcol);
+			  var db dbcol.slice(1,1)
+			  var col dbcol.slice(2,1)
             var cosmosConnectionInfo = {
-                var db dbcol.slice(1,1),
-				var col dbcol.slice(2,1)
 				database: db
                 collection: col,
                 query: $("#custom-query").val().trim()
