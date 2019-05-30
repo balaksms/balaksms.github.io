@@ -99,7 +99,7 @@
 			var dbcol = $("#dbcollist").val().trim().split("-");
             var cosmosConnectionInfo = {
 				database: "test",
-                collection: "test",
+                collection: "Testcol",
                 query: $("#custom-query").val().trim()
             };
 
