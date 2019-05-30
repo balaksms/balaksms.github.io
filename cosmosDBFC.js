@@ -98,11 +98,9 @@
         $("#submitButton").click(function() {
 			var dbcol = $("#dbcollist").val().trim().split("-");
 			console.log(dbcol);
-			  var db dbcol.slice(1,1)
-			  var col dbcol.slice(2,1)
             var cosmosConnectionInfo = {
-				database: db
-                collection: col,
+				database: "test"
+                collection: "test,
                 query: $("#custom-query").val().trim()
             }
 
