@@ -100,7 +100,7 @@
 			console.log(dbcol);
             var cosmosConnectionInfo = {
 				database: "test",
-                collection: "test,
+                collection: "test",
                 query: $("#custom-query").val().trim()
             }
 
