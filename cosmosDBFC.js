@@ -124,7 +124,7 @@
 					{
 					  var val= data[i].dbname + "-" + data[i].cname;
 					  var opt = $("<option>").val(val).text(val);
-					  $("#dbcollist").append(opt);
+					  $("#dbcollist").append(new opt);
 					}
 				}
 			}
