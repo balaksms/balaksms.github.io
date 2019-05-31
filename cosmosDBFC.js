@@ -53,8 +53,6 @@
     myConnector.getData = function(table, doneCallback) {
 
         var cosmosConnectionInfo = JSON.parse(tableau.connectionData),
-            account = cosmosConnectionInfo.account,
-            key = cosmosConnectionInfo.key,
             database = cosmosConnectionInfo.database,
             collection = cosmosConnectionInfo.collection,
             query = cosmosConnectionInfo.query,
@@ -62,8 +60,6 @@
 
         var queryInfo = {
             QueryText : query,
-            AccountUri: account,
-           Key : key,
            Database: database,
            Collection: collection
         };
@@ -102,7 +98,8 @@
             var cosmosConnectionInfo = {
 				database: dbname,
                 collection: colname,
-                query: $("#custom-query").val().trim()
+                query: $("#custom-query").val().trim(),
+				queryServerURL = queryServerURL
             };
 
             tableau.connectionData = JSON.stringify(cosmosConnectionInfo);
