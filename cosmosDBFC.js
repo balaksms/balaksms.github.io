@@ -127,7 +127,7 @@
 					var resp = request.responseText;
 					console.log(resp);
 					var data = JSON.parse(resp);
-					for (let i = 0; i < data.length; i++)
+					for (i = 0; i < data.length; i++)
 					{
 					  option = document.createElement('option');
 					  var val= data[i].dbname + "-" + data[i].cname;
