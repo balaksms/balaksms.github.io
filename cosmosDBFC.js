@@ -94,6 +94,8 @@
 			var dbcol = $("#dbcollist").val().trim().split("-");
 			var dbname = dbcol.slice(1,1);
 			var colname = dbcol.slice(2,1);
+			console.log("dbname->"+ dbname);
+			console.log("colname->"+ colname);
             var cosmosConnectionInfo = {
 				database: dbname,
                 collection: colname,
