@@ -109,7 +109,7 @@
 	
 	$(document).ready(function() {
         $("#btngetDBCollection").click(function() {
-			let dropdown = document.getElementById("dbcollist");
+			var dropdown = document.getElementById("dbcollist");
 			dropdown.length=0;
 
 			dropdown.selectedIndex = 0;
