@@ -124,7 +124,7 @@
 					{
 					  var val= data[i].dbname + "-" + data[i].cname;
 					  var opt = $("<option>").val(val).text(val);
-					  $(#btngetDBCollection).append(opt);
+					  $("#btngetDBCollection").append(opt);
 					}
 				}
 			}
