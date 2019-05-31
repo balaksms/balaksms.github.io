@@ -2,7 +2,7 @@
     // Create the connector object
     var myConnector = tableau.makeConnector();
     var cols = [];
-
+	var queryServerURL = "https://cosmosdbwebendpoint.azurewebsites.net/api/CosmosDBQuery?code=DpVgb0itRQPWp6yqTFGlFiPKozO2yqxMxi00YtVP5O4LfmkvAoDfkw==";
     // Define the schema
     myConnector.getSchema = function(schemaCallback) {
 
@@ -12,7 +12,7 @@
         
         // TODO: Change the below query to sampling random docs and extracting union of all columns
         query = "SELECT TOP 1 * from c";
-		queryServerURL = "https://cosmosdbwebendpoint.azurewebsites.net/api/CosmosDBQuery?code=DpVgb0itRQPWp6yqTFGlFiPKozO2yqxMxi00YtVP5O4LfmkvAoDfkw==";
+		
         var queryInfo = {
             QueryText : query,
             Database: database,
@@ -55,8 +55,7 @@
         var cosmosConnectionInfo = JSON.parse(tableau.connectionData),
             database = cosmosConnectionInfo.database,
             collection = cosmosConnectionInfo.collection,
-            query = cosmosConnectionInfo.query,
-            queryServerURL = cosmosConnectionInfo.queryServerURL;
+            query = cosmosConnectionInfo.query
 
         var queryInfo = {
             QueryText : query,
@@ -98,8 +97,7 @@
             var cosmosConnectionInfo = {
 				database: dbname,
                 collection: colname,
-                query: $("#custom-query").val().trim(),
-				queryServerURL = "https://cosmosdbwebendpoint.azurewebsites.net/api/CosmosDBQuery?code=DpVgb0itRQPWp6yqTFGlFiPKozO2yqxMxi00YtVP5O4LfmkvAoDfkw=="
+                query: $("#custom-query").val().trim()
             };
 
             tableau.connectionData = JSON.stringify(cosmosConnectionInfo);
