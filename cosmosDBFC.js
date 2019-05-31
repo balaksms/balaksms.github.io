@@ -109,11 +109,11 @@
 	
 	$(document).ready(function() {
         $("#btngetDBCollection").click(function() {
-			var dropdown = document.getElementById("dbcollist");
+			var dropdown = $(document).getElementById("dbcollist");
 			dropdown.length=0;
 
 			dropdown.selectedIndex = 0;
-			option = document.createElement('option');
+			option = $(document).createElement('option');
 			
 			dropdown.add(option);
 							 
