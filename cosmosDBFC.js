@@ -127,9 +127,10 @@
 					var resp = request.responseText;
 					console.log(resp);
 					var data = JSON.parse(resp);
+					var i;
 					for (i = 0; i < data.length; i++)
 					{
-					  option = document.createElement('option');
+					  option = $(document).createElement('option');
 					  var val= data[i].dbname + "-" + data[i].cname;
 					  option.text = val
 					  option.value = val
