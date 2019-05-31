@@ -105,4 +105,41 @@
             tableau.submit(); // This sends the connector object to Tableau
         });
     });
-})();
+	
+	$(document).ready(function){
+		$("#").click(function(){
+{
+	let dropdown = document.getElementById("dbcollist");
+	dropdown.length=0;
+
+	dropdown.selectedIndex = 0;
+    option = document.createElement('option');
+    
+	dropdown.add(option);
+                     
+	queryServerURL ='https://cosmosdbwebendpoint.azurewebsites.net/api/CosmodbListDBCollections?code=aPIHSuCzv61PidRribKPCm6BzajPTK0FOSIZML65i1xEGbs3FqWSbw==';
+	const request = new XMLHttpRequest();
+	request.open('GET', queryServerURL, true);
+	request.onload = function()
+	{
+			if (request.status === 200)
+		{
+			var resp = request.responseText;
+			console.log(resp);
+			var data = JSON.parse(resp);
+		    for (let i = 0; i < data.length; i++)
+		    {
+		      option = document.createElement('option');
+			  var val= data[i].dbname + "-" + data[i].cname;
+		      option.text = val
+		      option.value = val
+			  console.log(val);
+		      dropdown.add(option);
+		    }
+		}
+	}
+	request.send(null);
+}
+	
+});
+{);
