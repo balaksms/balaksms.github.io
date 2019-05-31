@@ -109,14 +109,6 @@
 	
 	$(document).ready(function() {
         $("#btngetDBCollection").click(function() {
-			var dropdown = $(document).getElementById("dbcollist");
-			dropdown.length=0;
-
-			dropdown.selectedIndex = 0;
-			option = $(document).createElement('option');
-			
-			dropdown.add(option);
-							 
 			queryServerURL ='https://cosmosdbwebendpoint.azurewebsites.net/api/CosmodbListDBCollections?code=aPIHSuCzv61PidRribKPCm6BzajPTK0FOSIZML65i1xEGbs3FqWSbw==';
 			const request = new XMLHttpRequest();
 			request.open('GET', queryServerURL, true);
@@ -130,12 +122,9 @@
 					var i;
 					for (i = 0; i < data.length; i++)
 					{
-					  option = $(document).createElement('option');
 					  var val= data[i].dbname + "-" + data[i].cname;
-					  option.text = val
-					  option.value = val
-					  console.log(val);
-					  dropdown.add(option);
+					  var opt = $("<option>").val(val).text(val);
+					  $(#btngetDBCollection).append(opt);
 					}
 				}
 			}
