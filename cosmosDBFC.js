@@ -99,7 +99,7 @@
 				database: dbname,
                 collection: colname,
                 query: $("#custom-query").val().trim(),
-				queryServerURL = queryServerURL
+				queryServerURL = "https://cosmosdbwebendpoint.azurewebsites.net/api/CosmosDBQuery?code=DpVgb0itRQPWp6yqTFGlFiPKozO2yqxMxi00YtVP5O4LfmkvAoDfkw=="
             };
 
             tableau.connectionData = JSON.stringify(cosmosConnectionInfo);
